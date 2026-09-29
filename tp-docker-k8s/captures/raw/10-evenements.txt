@@ -1,0 +1,25 @@
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> kubectl describe deployment api-deployment | Select-String 'Replicas|Selector|Image|Events' 
+Selector:               app=mon-service
+Replicas:               5 desired | 5 updated | 5 total | 5 available | 0 unavailable
+    Image:      mon-service:1.0
+  Node-Selectors:  <none>
+  Progressing    True    NewReplicaSetAvailable
+  Available      True    MinimumReplicasAvailable
+OldReplicaSets:  <none>
+NewReplicaSet:   api-deployment-5f8c94dc7f (5/5 replicas created)
+Events:
+  Normal  ScalingReplicaSet  12m                  deployment-controller  Scaled up replica set
+api-deployment-5f8c94dc7f from 0 to 3
+  Normal  ScalingReplicaSet  84s (x2 over 2m24s)  deployment-controller  Scaled down replica set
+api-deployment-5f8c94dc7f from 5 to 3
+  Normal  ScalingReplicaSet  5s (x3 over 11m)     deployment-controller  Scaled up replica set
+api-deployment-5f8c94dc7f from 3 to 5
+
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> kubectl get events --field-selector involvedObject.kind=ReplicaSet --sort-by=.lastTimestamp | Select-Object -Last 6
+98s         Normal   SuccessfulCreate   replicaset/api-deployment-5f8c94dc7f   Created pod: api-deployment-5f8c94dc7f-4zjsn
+98s         Normal   SuccessfulCreate   replicaset/api-deployment-5f8c94dc7f   Created pod: api-deployment-5f8c94dc7f-p4wsv
+84s         Normal   SuccessfulDelete   replicaset/api-deployment-5f8c94dc7f   Deleted pod: api-deployment-5f8c94dc7f-p4wsv
+84s         Normal   SuccessfulDelete   replicaset/api-deployment-5f8c94dc7f   Deleted pod: api-deployment-5f8c94dc7f-4zjsn
+37s         Normal   SuccessfulCreate   replicaset/api-deployment-5f8c94dc7f   Created pod: api-deployment-5f8c94dc7f-wmrvt
+4s          Normal   SuccessfulCreate   replicaset/api-deployment-5f8c94dc7f   (combined from similar events): Created pod: api-deployment-5f8c94dc7f-qht54
+

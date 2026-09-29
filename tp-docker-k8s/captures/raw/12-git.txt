@@ -1,0 +1,16 @@
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> git log --stat --format='commit %h  %an  %ad%n    %s'
+commit 5d7aac6  boucheramarouf  Tue Sep 29 16:07:40 2026 +0200
+    TP Jour 2 : containerisation et deploiement Kubernetes
+
+ tp-docker-k8s/REPONSES.md                      | 27 ++++++++++++++++++++++++
+ tp-docker-k8s/api/Dockerfile                   |  8 +++++++
+ tp-docker-k8s/api/app.py                       | 29 ++++++++++++++++++++++++++
+ tp-docker-k8s/api/init.sql                     |  8 +++++++
+ tp-docker-k8s/api/requirements.txt             |  2 ++
+ tp-docker-k8s/captures/7.1-auto-reparation.txt | 21 +++++++++++++++++++
+ tp-docker-k8s/captures/7.2-scaling.txt         | 17 +++++++++++++++
+ tp-docker-k8s/deployment.yaml                  | 22 +++++++++++++++++++
+ tp-docker-k8s/docker-compose.yml               | 24 +++++++++++++++++++++
+ tp-docker-k8s/service.yaml                     | 11 ++++++++++
+ 10 files changed, 169 insertions(+)
+

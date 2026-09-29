@@ -1,0 +1,13 @@
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> docker compose ps --format 'table {{.Name}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}'
+NAME                  IMAGE               STATUS          PORTS
+tp-docker-k8s-api-1   tp-docker-k8s-api   Up 15 minutes   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+tp-docker-k8s-db-1    postgres:16         Up 15 minutes   5432/tcp
+
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> Invoke-RestMethod http://localhost:8000/health
+status
+------
+ok
+
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> Invoke-RestMethod http://localhost:8000/ventes | ConvertTo-Json -Compress
+{"value":[[1,"Abonnement A","120.00"],[2,"Abonnement B","89.90"]],"Count":2}
+

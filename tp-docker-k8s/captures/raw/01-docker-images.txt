@@ -1,0 +1,4 @@
+PS C:\Users\BoucheraMarouf\docker_kubernetes_tp2\tp-docker-k8s> docker images mon-service
+REPOSITORY    TAG       IMAGE ID       CREATED          SIZE
+mon-service   1.0       123685be6141   18 minutes ago   208MB
+
